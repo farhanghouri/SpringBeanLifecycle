@@ -8,7 +8,8 @@ import com.journaldev.spring.bean.Employee;
 
 //This approach is simple to use but it’s not recommended because it will create tight coupling
 //with the Spring framework in our bean implementations
-public class EmployeeService implements InitializingBean, DisposableBean{
+
+public class EmployeeService implements InitializingBean, DisposableBean {
 
 	private Employee employee;
 
@@ -19,20 +20,20 @@ public class EmployeeService implements InitializingBean, DisposableBean{
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
 	}
-	
-	public EmployeeService(){
+
+	public EmployeeService() {
 		System.out.println("EmployeeService no-args constructor called");
 	}
 
-	//@Override
+	// @Override
 	public void destroy() throws Exception {
 		System.out.println("EmployeeService Closing resources");
 	}
 
-	//@Override
+	// @Override
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("EmployeeService initializing to dummy value");
-		if(employee.getName() == null){
+		if (employee.getName() == null) {
 			employee.setName("Pankaj");
 		}
 	}
